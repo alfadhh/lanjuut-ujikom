@@ -1,0 +1,325 @@
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    display: block;
+}
+
+nav h1 {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+nav ul li {
+    display: inline;
+}
+nav .container .logout {
+    display: inline;
+    background-color: red;
+    border-radius: 50px;
+}
+
+nav .container .logout :hover {
+   background-color: tomato;
+   border-radius: 50px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+.container h2 {
+    margin-top: 50px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.container-log {
+    display: block;
+    align-items: center;
+    text-align: center;
+        padding: 250px 50px 50px 50px ;
+}
+    
+.form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.form h2 {
+    margin-bottom: 20px;
+}
+
+.form input[type="text"],
+.form input[type="file"],
+.form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form label {
+    font-weight: bold;
+}
+
+.form-pemilihan {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.form-pemilihan h2 {
+    margin-bottom: 20px;
+}
+
+.form-pemilihan table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-pemilihan th, .form-pemilihan td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.form-pemilihan th {
+    background-color: #f2f2f2;
+}
+
+.form-pemilihan img {
+    max-width: 100px;
+    height: auto;
+}
+
+.form-pemilihan input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-pemilihan input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-pemilihan input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.PENGUMUMAN {
+    margin-top: 10px;
+    color: #ddd;
+}
+
+.PENGUMUMAN a {
+    color: white;
+    text-decoration: none;
+}
+
+.PENGUMUMAN button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.PENGUMUMAN button:hover {
+    background-color: #555;
+}
+
+.attention {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.attention h2 {
+    margin-bottom: 20px;
+}
+
+.attention .pemenang {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.attention .pemenang h3 {
+    margin-bottom: 10px;
+}
+
+.attention .pemenang ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.attention .pemenang ul li {
+    margin-bottom: 10px;
+}
+
+.attention .pemenang p {
+    margin-top: 20px;
+}
+
+
+.form {
+    width: 50%; 
+    margin: 0 auto; 
+    text-align: left; 
+}
+
+
+.form-pemilihan {
+    margin: 0 auto;
+    text-align: left; 
+}
+
+.chart {
+    width: 30%; 
+    margin: auto; 
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.container-log {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-log h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.user,
+.pass {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* Tambahkan jarak antara tombol */
+    text-align: center; /* Untuk menjaga teks di tengah */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.register-btn:hover {
+    color: #b40e0e;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}

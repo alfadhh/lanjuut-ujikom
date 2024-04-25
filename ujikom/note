@@ -1,0 +1,178 @@
+<?php
+    require 'conn.php';
+    session_start();
+   
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+        <h1>Pemilihan Ketua Replika's</h1>    
+        <ul>
+                <li><a href="index.php">Beranda</a></li>
+                <li><a href="plus.php">Add Data </a></li>
+                <li><a href="#">Pemilihan</a></li>
+                <div class="logout">
+                <li><a href="logout.php">LogOut</a></li>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Kandidat Ketua Replika's</h2>
+        
+
+        <table>
+    <tr>
+        <th>ID</th>
+        <th>NIS</th>
+        <th>Nama Kandidat</th>
+        <th>Kelas</th>
+        <th>Foto</th>
+        <th>Visi</th>
+        <th>Misi</th>
+        <th>Keahlian</th>
+        <th>Action</th>
+        <th>Action</th>
+        
+    </tr>
+    
+    <?php
+
+
+
+$result = $conn->query("SELECT * FROM kandidat");
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "<tr> ";
+            echo "<td>" . $row["id_kandidat"] . "</td>"; 
+            echo "<td>" . $row["nis"] . "</td>"; 
+            echo "<td>" . $row["nama_calon"] . "</td>";
+            echo "<td>" . $row["kelas"] . "</td>";
+            echo "<td><img src='" . $row["foto"] . "' width='100'></td>";
+            echo "<td>" . $row["visi"] . "</td>";
+            echo "<td>" . $row["misi"] . "</td>";
+            echo "<td>" . $row["id_kk"] . "</td>";
+            
+            echo "<td><a href='delete.php?id=" . $row['id_kandidat'] . "' onclick='return confirm(\"Anda yakin ingin menghapus data ini?\")'>Delete</a></td>";
+            echo "<td><a href='update.php?id=" . $row['id_kandidat'] . "'>Update</a></td>";
+
+            echo "</tr>";
+
+
+            echo "</tr>";
+        }
+    } else {
+        echo "Tidak ada data dalam tabel";
+    }
+    ?>
+        
+
+</table>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+<div class="container">
+        <h2>Pengumuman Pemenang</h2>
+        <div class="pemenang">
+            <?php echo "<h3>Pemenang Pemilihan Ketua Replika's adalah: $pemenang</h3>"; ?>
+            <?php echo "<p>Jumlah suara yang diperoleh: $jumlah_suara_pemenang</p>"; ?>
+        </div>
+
+
+
+
+        // Ambil data kandidat yang memiliki jumlah suara terbanyak
+$sql = "SELECT * FROM kandidat ORDER BY jumlah_suara DESC LIMIT 1";
+$result = $conn->query($sql);
+
+$pemenang = "Belum ada hasil";
+$jumlah_suara_pemenang = 0;
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $pemenang = $row['nama_calon'];
+    $jumlah_suara_pemenang = $row['jumlah_suara'];
+}
+
+
+
+
+<?php
+// Sertakan file koneksi ke database
+require 'conn.php';
+session_start();
+
+$sql = "SELECT id_kandidat, nama_calon, jumlah_suara FROM kandidat";
+$result = $conn->query($sql);
+
+$kandidat_dan_suara = array();
+
+if ($result->num_rows > 0) {
+    // Menyimpan data kandidat dan jumlah suara dalam array asosiatif
+    while($row = $result->fetch_assoc()) {
+        $kandidat_dan_suara[$row['id_kandidat']] = array(
+            'nama_calon' => $row['nama_calon'],
+            'jumlah_suara' => $row['jumlah_suara']
+        );
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+        <h1>Pemilihan Ketua Replika's</h1>    
+        <ul>
+            <li><a href="index.php">Beranda</a></li>
+            <li><a href="tambah_data.php">Tambah Data</a></li>
+            <li><a href="pemilihan.php">Pemilihan</a></li>
+            <div class="logout">
+                <li><a href="logout.php">LogOut</a></li>
+            </div>
+        </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Pengumuman Pemenang</h2>
+        <div class="pemenang">
+            <h3>Hasil Pemilihan Ketua Replika's:</h3>
+            <ul>
+                <?php
+                // Menampilkan hasil pemilihan untuk setiap kandidat
+                foreach ($kandidat_dan_suara as $id_kandidat => $data_kandidat) {
+                    echo "<li>{$data_kandidat['nama_calon']} - {$data_kandidat['jumlah_suara']} suara</li>";
+                }
+                ?>
+            </ul>
+        </div>
+        </form>
+    </div>
+</body>
+</html>
